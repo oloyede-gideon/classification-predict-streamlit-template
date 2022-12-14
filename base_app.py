@@ -53,7 +53,7 @@ def main():
 	if selection == "Information":
 		st.info("General Information")
 		# You can read a markdown file from supporting resources folder
-		st.markdown("Some information here")
+		st.markdown("This application helps you to classify a tweet into different categories as it relates to climate change: The following results are given their respective definitions below. \n Anti: the tweet does not believe in man-made climate change. \nNeutral: the tweet neither supports nor refutes the belief of man-made climate change\nPro: the tweet supports the belief of man-made climate change\nNews: the tweet links to factual news about climate change")
 
 		st.subheader("Raw Twitter data and label")
 		if st.checkbox('Show raw data'): # data is hidden if box is unchecked
