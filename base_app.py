@@ -72,11 +72,23 @@ def main():
 			# Try loading in multiple models to give the user a choice
 			predictor = joblib.load(open(os.path.join("resources/forest_model.pkl"),"rb"))
 			prediction = predictor.predict(vect_text)
+            result=""
+            if prediction[0]==0:
+                result="Neutral"
+            elif prediction[0]==-1:
+                result="Anti"
+            elif prediction[0]==1:
+                result="Pro"
+            elif prediction[0]==2:
+                result="News"
+                
+                
+            
 
 			# When model has successfully run, will print prediction
 			# You can use a dictionary or similar structure to make this output
 			# more human interpretable.
-			st.success("Text Categorized as: {}".format(prediction))
+			st.success("Text Categorized as:"+result)
 
 # Required to let Streamlit instantiate our web app.  
 if __name__ == '__main__':
