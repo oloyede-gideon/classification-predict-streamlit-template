@@ -41,14 +41,14 @@ def main():
 
 	# Creates a main title and subheader on your page -
 	# these are static across all pages
-	st.title("Tweet Classifer")
+	st.title("BASH Tweet Classifer")
 	st.subheader("Climate change tweet classification")
 
 	# Creating sidebar with selection box -
 	# you can create multiple pages this way
 	options = ["Prediction", "Information"]
 	selection = st.sidebar.selectbox("Choose Option", options)
-
+	result=""
 	# Building out the "Information" page
 	if selection == "Information":
 		st.info("General Information")
@@ -72,17 +72,16 @@ def main():
 			# Try loading in multiple models to give the user a choice
 			predictor = joblib.load(open(os.path.join("resources/forest_model.pkl"),"rb"))
 			prediction = predictor.predict(vect_text)
-            result=""
-            if prediction[0]==0:
-                result="Neutral"
-            elif prediction[0]==-1:
-                result="Anti"
-            elif prediction[0]==1:
-                result="Pro"
-            elif prediction[0]==2:
-                result="News"
+			if prediction[0]==0:
+				result="Neutral"
+			elif prediction[0]==-1:
+				result="Anti"
+			elif prediction[0]==1:
+				result="Pro"
+			elif prediction[0]==2:
+				result="News"
                 
-                
+               
             
 
 			# When model has successfully run, will print prediction
